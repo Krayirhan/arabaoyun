@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Şehir trafiğinde şerit değiştir, engellerden kaç ve yüksek skor yap." />
+  <title>Gece Sürüşü</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1020'/%3E%3Cpath d='M13 39h38l-5-16H18z' fill='%23ff6b35'/%3E%3Ccircle cx='21' cy='44' r='5' fill='%23e9f1ff'/%3E%3Ccircle cx='43' cy='44' r='5' fill='%23e9f1ff'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">◆</span><span>GECE SÜRÜŞÜ</span></div>
+      <div class="status"><span class="status-dot"></span> TRAFİK AÇIK</div>
+    </header>
+
+    <section class="game-card" aria-label="Araba oyunu">
+      <div class="hud">
+        <div><span class="hud-label">SKOR</span><strong id="score">000000</strong></div>
+        <div class="hud-center"><span class="speed-ring"><strong id="speed">72</strong><small>KM/H</small></span></div>
+        <div class="hud-right"><span class="hud-label">REKOR</span><strong id="best">000000</strong></div>
+      </div>
+      <div class="road-wrap">
+        <canvas id="game" aria-label="Oyunun yol alanı"></canvas>
+        <div id="start-panel" class="overlay">
+          <div class="eyebrow">ŞEHİR HATTI / 01</div>
+          <h1>Akışta kal.</h1>
+          <p>Binaların arasından süzül, trafiğe çarpmadan mesafeyi artır.</p>
+          <button id="start-btn" class="primary-btn">SÜRÜŞE BAŞLA <span>→</span></button>
+          <div class="hint"><kbd>←</kbd><kbd>→</kbd> veya <kbd>A</kbd><kbd>D</kbd> ile şerit değiştir</div>
+        </div>
+        <div id="game-over" class="overlay hidden">
+          <div class="eyebrow danger">KAZA YAPTIN</div>
+          <h2>Şehir seni bekliyor.</h2>
+          <p>Skorun <strong id="final-score">0</strong>. Bir tur daha?</p>
+          <button id="restart-btn" class="primary-btn">TEKRAR DENE <span>↻</span></button>
+        </div>
+      </div>
+      <div class="bottom-bar">
+        <span><i class="key-icon">←</i><i class="key-icon">→</i> ŞERİT DEĞİŞTİR</span>
+        <span class="mobile-note">MOBİLDE KAYDIR</span>
+        <span><i class="mini-line"></i> REFLEKSLERİNİ TEST ET</span>
+      </div>
+    </section>
+    <p class="footer-note">Hız arttıkça şehir daralır. Sakin kal, öne bak.</p>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
